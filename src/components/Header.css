@@ -1,0 +1,159 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--bg-color);
+    border-bottom: 4px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent-secondary);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.logo-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 0 5px var(--accent-secondary));
+}
+
+.blink {
+    animation: blink-animation 1s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-lg);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-primary);
+    text-shadow: 2px 2px 0px var(--accent-secondary);
+}
+
+.cta-small {
+    padding: 8px 16px;
+    font-size: 0.7rem;
+}
+
+/* Desktop Nav Menu Layout */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+/* Hamburger Menu - Hidden on Desktop */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    box-shadow: none;
+    padding: 5px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--accent-secondary);
+    transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+        padding: var(--spacing-sm) var(--spacing-md);
+        position: sticky;
+        /* Keep it sticky */
+        flex-direction: row;
+        /* Override previous column direction for mobile header */
+        gap: var(--spacing-md);
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide the nav by default on mobile, show when 'open' */
+    .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md) 0;
+        border-top: 2px dashed var(--border-color);
+    }
+
+    .nav-menu.open {
+        display: flex;
+        animation: slide-down 0.3s ease-out;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        /* Stack links vertically on mobile */
+        align-items: center;
+        gap: var(--spacing-md);
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+        /* Larger touch targets */
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        display: block;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .cta-small {
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+    }
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

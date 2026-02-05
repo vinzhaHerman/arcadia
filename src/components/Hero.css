@@ -1,0 +1,186 @@
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-xl);
+    min-height: 80vh;
+    gap: var(--spacing-xl);
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 4px 4px 0px var(--accent-primary);
+}
+
+.highlight {
+    color: var(--accent-tertiary);
+    text-shadow: 4px 4px 0px var(--accent-primary);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-lg);
+    color: #ccc;
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.cta-large {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+}
+
+.cta-secondary {
+    background: transparent;
+    color: var(--accent-secondary);
+    border-color: var(--accent-secondary);
+    box-shadow: 4px 4px 0px 0px var(--accent-secondary);
+}
+
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Retro Monitor CSS Art */
+.crt-monitor {
+    background: #333;
+    padding: 20px;
+    border-radius: 20px;
+    border: 4px solid #555;
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 4/3;
+    position: relative;
+}
+
+.screen {
+    background: #000;
+    width: 100%;
+    height: 100%;
+    border-radius: 40% / 10%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #111;
+}
+
+.scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.2));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.glitch-box {
+    color: var(--accent-tertiary);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    text-align: center;
+    animation: glitch-anim 2s infinite;
+}
+
+.pixel-icon {
+    display: block;
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.blink-fast {
+    animation: blink-animation 0.5s steps(2, start) infinite;
+}
+
+@keyframes glitch-anim {
+    0% {
+        transform: translate(0);
+        text-shadow: none;
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+        text-shadow: 2px 2px var(--accent-primary);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+        text-shadow: -2px -2px var(--accent-secondary);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+        text-shadow: 2px -2px var(--accent-primary);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+        text-shadow: -2px 2px var(--accent-secondary);
+    }
+
+    100% {
+        transform: translate(0);
+        text-shadow: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: var(--spacing-xl) var(--spacing-md);
+        /* Vertical spacing from var, horizontal constrained */
+        min-height: auto;
+        /* Remove fixed height constraint */
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        /* Smaller title */
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        /* Stack buttons */
+        width: 100%;
+    }
+
+    .cta-large,
+    .cta-secondary {
+        width: 100%;
+    }
+
+    /* Scale down the CRT art */
+    .crt-monitor {
+        max-width: 100%;
+        height: auto;
+    }
+}

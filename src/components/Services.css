@@ -1,0 +1,91 @@
+.services {
+    padding: var(--spacing-xl);
+    background-color: var(--bg-color);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-xl);
+    color: var(--accent-secondary);
+    text-shadow: 4px 4px 0px rgba(0, 240, 255, 0.3);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: var(--card-bg);
+    border: 4px solid var(--border-color);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 0px 0px var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.1);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px dashed var(--accent-secondary);
+}
+
+.service-card h3 {
+    color: var(--text-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: var(--spacing-lg);
+}
+
+.price-tag {
+    margin-top: auto;
+    background: var(--accent-tertiary);
+    color: var(--bg-color);
+    padding: 5px 10px;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    transform: rotate(-2deg);
+}
+
+@media (max-width: 768px) {
+    .services {
+        padding: var(--spacing-lg) var(--spacing-sm);
+        /* Reduce horizontal padding */
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        /* Force 1 column on mobile */
+        gap: var(--spacing-md);
+    }
+
+    .service-card {
+        padding: var(--spacing-md);
+    }
+}
